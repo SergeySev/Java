@@ -1,3 +1,5 @@
+package Train;
+
 public class Constructor {
     /*
      Написать простой класс с полями, и связать его с другим классом через конструктор
@@ -16,7 +18,7 @@ public class Constructor {
         private String dvigatel;
         private Insurense insurense;
 
-        public CarConstruct(String kuzov, String color, boolean salon, boolean korobkaPeredach, String dvigatel) {
+        public CarConstruct(String kuzov, String color, boolean salon, boolean korobkaPeredach, String dvigatel, Insurense insurense) {
             this.kuzov = kuzov;
             this.color = color;
             this.salon = salon;
@@ -47,7 +49,7 @@ public class Constructor {
         }
     }
     public static void main(String[] args) {
-        CarConstruct bmw = new CarConstruct("speed-car", "red", true, false, "Super");
+        CarConstruct bmw = new CarConstruct("speed-car", "red", true, false, "Super", new Insurense());
 
         System.out.println(bmw.getInsurense().getPerMonth());
         bmw.getInsurense().setPerMonth(999);

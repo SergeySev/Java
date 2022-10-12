@@ -1,3 +1,5 @@
+package Train;
+
 public class Insurense {
 
     private boolean packageInsurense = true; // true - максимальное страхование, false - минимальное
