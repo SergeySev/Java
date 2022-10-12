@@ -1,4 +1,4 @@
-package Train;
+package Train.Constructor;
 
 public class Constructor {
     /*
