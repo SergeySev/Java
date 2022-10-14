@@ -35,7 +35,7 @@ public class Employee {
     protected String surName;
 
     public float getCalculateTax() {
-        return calculateTax;
+        return (salary * taxRate) + (salary * socialRate);
     }
 
     public static void main(String[] args) {
