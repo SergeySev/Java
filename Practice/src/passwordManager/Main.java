@@ -28,7 +28,7 @@ public class Main {
 
     Scanner scanner = new Scanner(System.in);
 
-    public static String[][] addNewMassiv(String[][] oldArray, String[] subArray) {
+    //public static String[][] addNewMassiv(String[][] oldArray, String[] subArray) {
         /*
         Написать функцию, которая:
         1) Принимает массив
@@ -39,10 +39,10 @@ public class Main {
         Сложность функции 2 из 5
          */
         String[][] newArray;
-        return newArray;
-    }
+        //return newArray;
+    //}
 
-    public static String[][] deleteElement(String[][] array, int index) {
+    //public static String[][] deleteElement(String[][] array, int index) {
         /*
         Написать функцию, которая принимает массив и индекс удаляемого элемента:
         1) Создает новый массив длинной на 1 меньше принимаего
@@ -52,7 +52,7 @@ public class Main {
 
         Сложность 3 из 5
          */
-    }
+    //}
 
     public static void adminLookUserPassword() {
         /*
@@ -128,11 +128,13 @@ public class Main {
         1) Спрашивает у пользователя:
         а) Имя сайта
         б) Логин
-        в) Пароль
+        в) Пароль - спросить у пользователя, хочет он воспользоваться генерацией пароля или ввести сам.
+        Если сам - через scaner вводит пароль.
+        Если воспользоваться генерацией - запускаем функцию generatePassword() и передаем её в качестве пароля
         2) Собирает данные в массив
         3) Запускает функцию addNewMassiv(old massive, massiveWithNewData)
 
-        Сложность: 1 из 5
+        Сложность: 5 из 5
          */
     }
 
@@ -147,6 +149,18 @@ public class Main {
 
         Сложность 4 из 5
          */
+    }
+
+    public static String generatePassword() {
+        /*
+        Написать функцию, которая:
+         1) Генерирует пароль в случайном диапазоне от 8 до 16 символов
+         2) Записывает туда случйные буквы, цифры, символы.
+         3) Возвращает строку со сгенерированным паролем
+
+         Сложность 5 из 5
+         */
+        return "";
     }
 
     public static void programInterface() {
