@@ -9,6 +9,7 @@ public class SimpleOrderAddress extends Order{
         this.deliveryDays = 5;
         this.productName = productName;
         this.productPrice = productPrice;
+        this.address = address;
     }
 
     @Override
@@ -22,7 +23,6 @@ public class SimpleOrderAddress extends Order{
                 "productName='" + productName + '\'' +
                 ", deliveryAddress='" + deliveryAddress + '\'' +
                 ", productPrice=" + productPrice +
-                ", deliveryDays=" + deliveryDays +
-                '}';
+                ", deliveryDays=" + deliveryDays + '}';
     }
 }

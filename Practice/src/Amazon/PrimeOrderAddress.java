@@ -10,6 +10,7 @@ public class PrimeOrderAddress extends Order{
         this.deliveryDays = 3;
         this.productName = productName;
         this.productPrice = productPrice;
+        this.address = address;
     }
 
     @Override

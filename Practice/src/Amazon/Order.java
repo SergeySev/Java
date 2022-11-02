@@ -84,12 +84,12 @@ public abstract class Order {
                 "Product: " + productName + "\n" +
                 "Price: " +  getProductPrice() + "\n" +
                 "Delivery days: " + getDeliveryDays() + "\n" +
-                "Price with delivery: " + getPriceWithDelivery() + "\n";
+                "Price with delivery: " + getPriceWithDelivery() + "\n" +
+                "Adress delivery:\nCountry: "+ address.getCountry() + "\n" +
+                "City: " + address.getCity() + "\n" +
+                "Street: " + address.getStreet() + "\n" +
+                "House: " + address.getHouse();
     }
-
-//    public Address getAddress() {
-////        return new Address().toStringAdd();
-//    }
 
 
     protected abstract float getPriceWithDelivery();
@@ -98,63 +98,40 @@ public abstract class Order {
         SimpleOrder sergey = new SimpleOrder("Computer Table", "Sergeya 22", 68.99f);
         PrimeOrder duda = new PrimeOrder("Cable Manager", "Vyzov 1428", 9.99f);
 
-        int[] numbers = new int[8];
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = new Random().nextInt(1, 11);
-        }
-        System.out.println(Arrays.toString(numbers));
-        for (int i = 0; i < numbers.length; i++) {
-            if (i % 2 != 0) {
-                numbers[i] = 0;
-            }
-        }
-        System.out.println(Arrays.toString(numbers));
+        SimpleOrderAddress vycheslav = new SimpleOrderAddress(
+                "Spoon",
+                2.59f,
+                new Address(
+                        "Usa",
+                        "New York",
+                        "Vyacheslava",
+                        "56"));
 
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        int count = (input.length() > 0) ? 1 : 0;
-        for (int i = 0; i < input.length(); i++) {
-            if (input.toCharArray()[i] == ' ') {
-                count++;
-            }
-        }
-        int blockCount = "1215 544 965  d  ".split(" ").length;
-        System.out.println(blockCount);
-        System.out.println(input.toCharArray());
-        System.out.println("Count of words is = " + count);
+        PrimeOrderAddress mikhail = new PrimeOrderAddress(
+                "Tel-ran",
+                10000f,
+                new Address(
+                        "Deutschland",
+                        "Berlin",
+                        "Mikhaila",
+                        "1A"));
 
-//        SimpleOrderAddress vycheslav = new SimpleOrderAddress(
-//                "Spoon",
-//                2.59f,
-//                new Address(
-//                        "Usa",
-//                        "New York",
-//                        "Vyacheslava",
-//                        "56"));
-//
-//        PrimeOrderAddress mikhail = new PrimeOrderAddress(
-//                "Tel-ran",
-//                10000f,
-//                new Address(
-//                        "Deutschland",
-//                        "Berlin",
-//                        "Mikhaila",
-//                        "1A"));
-//
-//        System.out.println(sergey.toStringSimple());
-//        System.out.println(duda.toStringSimple());
-//
-//        System.out.println("Vycheslav");
-//        System.out.println(vycheslav);
-//        System.out.println("________");
-//
-//        System.out.println("Cycle");
-//        Order[] array = {sergey, duda};
-//        for (Order order : array) {
-//            if (order instanceof SimpleOrder) {
-//                System.out.println("---Simple Order---");
-//            } else System.out.println("---Prime Order---");
-//            System.out.println(order.toStringSimple());
+        System.out.println(sergey.toStringSimple());
+        System.out.println(duda.toStringSimple());
+
+        System.out.println("Vycheslav");
+        System.out.println(vycheslav.toStringAddress());
+        System.out.println();
+        System.out.println(mikhail.toStringAddress());
+        System.out.println("________");
+
+        System.out.println("Cycle");
+        Order[] array = {sergey, duda};
+        for (Order order : array) {
+            if (order instanceof SimpleOrder) {
+                System.out.println("---Simple Order---");
+            } else System.out.println("---Prime Order---");
+            System.out.println(order.toStringSimple());
         }
     }
-//}
+}
