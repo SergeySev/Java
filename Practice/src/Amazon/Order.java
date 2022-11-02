@@ -1,11 +1,5 @@
 package Amazon;
 
-
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Scanner;
-
 /*
 К нам пришел клиент, который хочет разработать онлайн магазин, похожий на Amazon. Ваша задача реализовать иерархию классов заказов.
 В будущем онлайн магазине бывает два типа заказов:
@@ -57,15 +51,12 @@ public abstract class Order {
     protected String deliveryAddress;
     protected float productPrice;
     protected int deliveryDays;
-    protected Address address; // HERE I CREATE ADRESS
+    protected Address address;
 
     protected int getDeliveryDays() {
         return deliveryDays;
     }
 
-    protected String getProductName() {
-        return productName;
-    }
 
     protected float getProductPrice() {
         return productPrice;
