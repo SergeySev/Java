@@ -7,7 +7,5 @@ public class RezidentEmployee extends Employee{
         this.salary = salary;
         this.name = name;
         this.surName = surName;
-//        this.calculateTax = ((salary * taxRate) + (salary * socialRate));
     }
-
 }

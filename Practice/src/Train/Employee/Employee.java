@@ -30,7 +30,6 @@ public class Employee {
     protected float taxRate;
     protected float socialRate;
     protected float salary;
-    public float calculateTax;
     protected String name;
     protected String surName;
 
@@ -41,11 +40,19 @@ public class Employee {
     public static void main(String[] args) {
         Contractor sergeyIvanov = new Contractor("Sergey", "Ivanov", 3000.23f);
         RezidentEmployee robertPattison = new RezidentEmployee("Robert", "Pattison", 344200f);
-        NoRezidentEmployee mikhailJava = new NoRezidentEmployee("Mikhail", "Java", 5000f);
+        NoRezidentEmployee mikhailJava = new NoRezidentEmployee("Mikhail", "Java", 5000000f);
+
+        Employee[] massive = {sergeyIvanov, robertPattison, mikhailJava};
 
         System.out.println("Tax for Sergey: " + sergeyIvanov.getCalculateTax());
         System.out.println("Tax for Robert: " + robertPattison.getCalculateTax());
         System.out.println("Tax for Mikhail: " + mikhailJava.getCalculateTax());
+        int sumTaxe = 0;
+
+        for (Employee employee : massive) {
+            sumTaxe += employee.getCalculateTax();
+        }
+        System.out.println(sumTaxe);
     }
 
 }

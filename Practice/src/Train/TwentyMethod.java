@@ -209,15 +209,17 @@ public class TwentyMethod {
 
     public static void main(String[] args) {
         int[] testArray = {2, 3, 1, 5};
-        System.out.println("Min number in" + Arrays.toString(testArray) + " is " + getMinNumber(testArray));
-        System.out.println("Max number in " + Arrays.toString(testArray) + " is " + getMaxNumber(testArray));
-        System.out.println("Index numbers \"5\" in array " + Arrays.toString(testArray) + " is " + binarySearch(testArray, 5));
-        System.out.println("Selection sort array " + Arrays.toString(testArray) + " result = " + Arrays.toString(selectionSort(testArray)));
-        System.out.println("Equation 3x^2 - 4x + 2 = 0\rAnswer: " + Arrays.toString(getDiscriminant(3, -4, 2)));
-        System.out.println("Equation x^2 - 6x + 9 = 0\rAnswer: " + Arrays.toString(getDiscriminant(1, -6, 9)));
-        System.out.println("Equation x^2 - 4x - 5 = 0\rAnswer: " + Arrays.toString(getDiscriminant(1, -4, -5)));
-        System.out.println("Factorial 3 is " + getFactorial(3));
-        System.out.println("Fibonacci 7 is " + getFibonachi(7));
-        System.out.println("Length String \"Hi\" is " + getLength("Hi"));
+//        System.out.println("Min number in" + Arrays.toString(testArray) + " is " + getMinNumber(testArray));
+//        System.out.println("Max number in " + Arrays.toString(testArray) + " is " + getMaxNumber(testArray));
+//        System.out.println("Index numbers \"5\" in array " + Arrays.toString(testArray) + " is " + binarySearch(testArray, 5));
+//        System.out.println("Selection sort array " + Arrays.toString(testArray) + " result = " + Arrays.toString(selectionSort(testArray)));
+//        System.out.println("Equation 3x^2 - 4x + 2 = 0\rAnswer: " + Arrays.toString(getDiscriminant(3, -4, 2)));
+//        System.out.println("Equation x^2 - 6x + 9 = 0\rAnswer: " + Arrays.toString(getDiscriminant(1, -6, 9)));
+//        System.out.println("Equation x^2 - 4x - 5 = 0\rAnswer: " + Arrays.toString(getDiscriminant(1, -4, -5)));
+//        System.out.println("Factorial 3 is " + getFactorial(3));
+//        System.out.println("Fibonacci 7 is " + getFibonachi(7));
+        String test = "Genr";
+        getLength(test);
+        System.out.println("Length String " + test + " is " + getLength(test));
     }
 }

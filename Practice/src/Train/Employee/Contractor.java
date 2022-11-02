@@ -7,6 +7,5 @@ public class Contractor extends Employee{
         this.salary = salary;
         this.name = name;
         this.surName = surName;
-        this.calculateTax = 0;
     }
 }

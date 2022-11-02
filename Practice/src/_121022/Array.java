@@ -21,13 +21,13 @@ public class Array {
 
         System.out.println("Введите число от 1 до 10");
 
-        byte plyerChislo = scanner.nextByte();;
+        byte plyerChislo = scanner.nextByte();
+        ;
 
         while (plyerChislo < 1 || plyerChislo > 10) {
             System.out.println("Введие число как надо");
             plyerChislo = scanner.nextByte();
         }
-
 
 
         random.nextInt(1, 11);

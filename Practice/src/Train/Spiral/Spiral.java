@@ -58,14 +58,17 @@ public class Spiral {
     public static void getArray(int width, int height) {
         for (int s = 0; s < height; s++) {
             System.out.println(Arrays.toString(spiral(width, height)[s]));
-            spiral(width, height);
         }
     }
 
     public static void testSergey() {
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
-                getArray(j, i);
+        for (int i = 0; i < 7; i++) {
+            for (int j = 0; j < 7; j++) {
+                try {
+                    getArray(j, i);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("ERROR WITH I = " + i + " J = " + j);
+                }
             }
         }
     }

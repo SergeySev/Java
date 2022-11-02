@@ -16,15 +16,12 @@ import java.util.Scanner;
 
 
 public class Practika {
-
-
     static int[] cardPowerInt = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
 
     static String[][] cardPowerType = {{"2h", "3h", "4h", "5h", "6h", "7h", "8h", "9h", "10h", "Vh", "Dh", "Kh", "Ah"},
             {"2s", "3s", "4s", "5s", "6s", "7s", "8s", "9s", "10s", "Vs", "Ds", "Ks", "As"},
             {"2d", "3d", "4d", "5d", "6d", "7d", "8d", "9d", "10d", "Vd", "Dd", "Kd", "Ad"},
             {"2c", "3c", "4c", "5c", "6c", "7c", "8c", "9c", "10c", "Vc", "Dc", "Kc", "Ac"}};
-
 
     public static void main(String[] args) {
         // While
@@ -50,6 +47,5 @@ public class Practika {
         for (int q = 0; q < cardPowerInt.length; q++) {
             System.out.println(cardPowerInt[q] + " I = " + q);
         }
-
     }
 }
