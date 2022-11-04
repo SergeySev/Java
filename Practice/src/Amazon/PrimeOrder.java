@@ -6,7 +6,7 @@ package Amazon;
 
 public class PrimeOrder extends Order{
 
-    public PrimeOrder(String productName, String deliveryAddress, float productPrice) {
+    protected PrimeOrder(String productName, String deliveryAddress, float productPrice) {
         this.deliveryDays = 3;
         this.productName = productName;
         this.deliveryAddress = deliveryAddress;

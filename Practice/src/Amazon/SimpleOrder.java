@@ -5,7 +5,7 @@ package Amazon;
 //        - Стоимость товара с доставкой (getPriceWithDelivery) = стоимость товара + 8 евро,✅
 public class SimpleOrder extends Order{
 
-    public SimpleOrder(String productName, String deliveryAddress, float productPrice) {
+    protected SimpleOrder(String productName, String deliveryAddress, float productPrice) {
         this.deliveryDays = 5;
         this.productName = productName;
         this.deliveryAddress = deliveryAddress;

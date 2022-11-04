@@ -5,7 +5,7 @@ package Amazon;
 //        - Стоимость товара с доставкой (getPriceWithDelivery) = стоимость товара + 8 евро,✅
 public class SimpleOrderAddress extends Order{
 
-    public SimpleOrderAddress(String productName, float productPrice, Address address) {
+    protected SimpleOrderAddress(String productName, float productPrice, Address address) {
         this.deliveryDays = 5;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -15,14 +15,5 @@ public class SimpleOrderAddress extends Order{
     @Override
     protected float getPriceWithDelivery() {
         return productPrice + 8;
-    }
-
-    @Override
-    public String toString() {
-        return "SimpleOrderAddress{" +
-                "productName='" + productName + '\'' +
-                ", deliveryAddress='" + deliveryAddress + '\'' +
-                ", productPrice=" + productPrice +
-                ", deliveryDays=" + deliveryDays + '}';
     }
 }

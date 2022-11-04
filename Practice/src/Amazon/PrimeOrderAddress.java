@@ -3,10 +3,9 @@ package Amazon;
 //        - Длительность доставки - 3 дня✅
 //        ✅Реализовать метод getPriceWithDelivery       - Стоимость товара с доставкой (getPriceWithDelivery) = стоимость товара,
 
-
 public class PrimeOrderAddress extends Order{
 
-    public PrimeOrderAddress(String productName, float productPrice, Address address) {
+    protected PrimeOrderAddress(String productName, float productPrice, Address address) {
         this.deliveryDays = 3;
         this.productName = productName;
         this.productPrice = productPrice;

@@ -62,7 +62,7 @@ public abstract class Order {
         return productPrice;
     }
 
-    public String toStringSimple() {
+    protected String toStringSimple() {
         return "Customer buy:\n" +
                 "Product: " + productName + "\n" +
                 "Price: " +  getProductPrice() + "\n" +
@@ -70,7 +70,7 @@ public abstract class Order {
                 "Price with delivery: " + getPriceWithDelivery() + "\n";
     }
 
-    public String toStringAddress() {
+    protected String toStringAddress() {
         return "Customer buy:\n" +
                 "Product: " + productName + "\n" +
                 "Price: " +  getProductPrice() + "\n" +
