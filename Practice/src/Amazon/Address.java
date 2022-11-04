@@ -28,19 +28,4 @@ public class Address{
     protected  String getHouse() {
         return house;
     }
-
-//    @Override
-    public String toStringAdd() {
-        return "Address{" +
-                "country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", street='" + street + '\'' +
-                ", house='" + house + '\'' +
-                '}';
-    }
-
-//    @Override
-//    protected float getPriceWithDelivery() {
-//        return 0;
-//    }
 }

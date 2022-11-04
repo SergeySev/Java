@@ -5,19 +5,19 @@ package Amazon;
 В будущем онлайн магазине бывает два типа заказов:
 1. Обычные заказы (для клиентов, которые не оплатили подписку)
 2. Prime заказы (для клиентов которые оплатили подписку на Prime) - у таких заказов время доставки быстрее и доставка всегда бесплатно (то есть аналогично подписки на Amazon).
-Попробуйте разрабтать следующую иерархию.
+Попробуйте разработать следующую иерархию.
 1. Абстрактный класс Order с полями ✅
  - Название товара (строка),✅
   - Адрес доставки (строка),✅
  - Стоимость товара (целое или вещественное число),✅
 - Длительность доставки✅
 Не абстрактным методом
-  - Длительность доставки (getDeliveryDays), где возвращается поле длительность доставки,✅
+  - Длительность доставки (getDeliveryDays), где возвращается поле длительность доставки, ✅
 и абстрактными методами - Стоимость товара с доставкой (getPriceWithDelivery),✅
 2. Класс SimpleOrder - наследник от класса Order, в котором нужно задать✅
- - Длительность доставки - всегда 5 дней,✅
+ - Длительность доставки - всегда 5 дней, ✅
 Реализовать метод getPriceWithDelivery✅
- - Стоимость товара с доставкой (getPriceWithDelivery) = стоимость товара + 8 евро,✅
+ - Стоимость товара с доставкой (getPriceWithDelivery) = стоимость товара + 8 евро, ✅
 2. Класс PrimeOrder (заказы для клиентов с Prime)✅
  - Длительность доставки - 3 дня✅
 Реализовать метод getPriceWithDelivery - Стоимость товара с доставкой (getPriceWithDelivery) = стоимость товара,✅
@@ -26,14 +26,14 @@ package Amazon;
 
 Дополнительная сложность:
 1. Попробуйте создать массив из Order, ✅
-куда поместить несколько SimpleOrder и PrimeOrder с разными данными,✅
-проитерироваться по нему (любым способом)✅
+куда поместить несколько SimpleOrder и PrimeOrder с разными данными, ✅
+провести итерацию по нему (любым способом)✅
 и вывести в консоль данные товаров и методов getDeliveryDays и getPriceWithDelivery.✅
 
 2. Дополнительно к (1) попробуйте вывести так же✅
 является данным заказ обычным или Prime✅
 проверяя реальный класс (напоминаю, это можно сделать с помощью getClass или instanceof -✅
-если есть затруднения можно найти код в интернете по этим ключевым словам),✅
+если есть затруднения можно найти код в интернете по этим ключевым словам), ✅
 
 3. Попробуйте дополнительно создать класс Address в котором
 описать страну,
@@ -41,7 +41,7 @@ package Amazon;
 улицу,
 номер дома
 в отдельных полях
-и использовать его вместо строкого поля address в классе Order.
+и использовать его вместо строкового поля address в классе Order.
 
 Во всех примерах выше, где нужно выводить данные,
 постарайтесь вывести все данные из этого класса (можно использовать toString)
@@ -76,7 +76,7 @@ public abstract class Order {
                 "Price: " +  getProductPrice() + "\n" +
                 "Delivery days: " + getDeliveryDays() + "\n" +
                 "Price with delivery: " + getPriceWithDelivery() + "\n" +
-                "Adress delivery:\nCountry: "+ address.getCountry() + "\n" +
+                "Address delivery:\nCountry: "+ address.getCountry() + "\n" +
                 "City: " + address.getCity() + "\n" +
                 "Street: " + address.getStreet() + "\n" +
                 "House: " + address.getHouse();
@@ -86,10 +86,10 @@ public abstract class Order {
     protected abstract float getPriceWithDelivery();
 
     public static void main(String[] args) {
-        SimpleOrder sergey = new SimpleOrder("Computer Table", "Sergeya 22", 68.99f);
+        SimpleOrder sergey = new SimpleOrder("Computer Table", "Sergey 22", 68.99f);
         PrimeOrder duda = new PrimeOrder("Cable Manager", "Vyzov 1428", 9.99f);
 
-        SimpleOrderAddress vycheslav = new SimpleOrderAddress(
+        SimpleOrderAddress vyacheslav = new SimpleOrderAddress(
                 "Spoon",
                 2.59f,
                 new Address(
@@ -102,7 +102,7 @@ public abstract class Order {
                 "Tel-ran",
                 10000f,
                 new Address(
-                        "Deutschland",
+                        "Deutsch-land",
                         "Berlin",
                         "Mikhaila",
                         "1A"));
@@ -110,8 +110,8 @@ public abstract class Order {
         System.out.println(sergey.toStringSimple());
         System.out.println(duda.toStringSimple());
 
-        System.out.println("Vycheslav");
-        System.out.println(vycheslav.toStringAddress());
+        System.out.println("Vyacheslav");
+        System.out.println(vyacheslav.toStringAddress());
         System.out.println();
         System.out.println(mikhail.toStringAddress());
         System.out.println("________");
