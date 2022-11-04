@@ -43,18 +43,18 @@ public class SpiralOneCycle {
                     if (direction[1]) {i++;} else i--;
                 }
                 direction[j] = !direction[j];
-//                if (j == 1) {
-//                    direction[0] = !direction[0];
-//                    direction[1] = !direction[1];
-//                    direction[2] = !direction[2];
-//                    direction[3] = !direction[3];
-//                }
-//                direction[j] = !direction[j];
-//                if (j == 3) {
-//                    direction[0] = !direction[0];
-//                } else {
-//                    direction[j + 1] = !direction[j + 1];
-//                }
+                if (j == 1) {
+                    direction[0] = !direction[0];
+                    direction[1] = !direction[1];
+                    direction[2] = !direction[2];
+                    direction[3] = !direction[3];
+                }
+                direction[j] = !direction[j];
+                if (j == 3) {
+                    direction[0] = !direction[0];
+                } else {
+                    direction[j + 1] = !direction[j + 1];
+                }
             }
             fillright++;
             fillleftDown--;
