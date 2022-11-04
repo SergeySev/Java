@@ -1,6 +1,6 @@
 package Amazon;
 
-public class Address extends Order{
+public class Address{
     protected String country;
     protected String city;
     protected String street;
@@ -39,8 +39,8 @@ public class Address extends Order{
                 '}';
     }
 
-    @Override
-    protected float getPriceWithDelivery() {
-        return 0;
-    }
+//    @Override
+//    protected float getPriceWithDelivery() {
+//        return 0;
+//    }
 }
