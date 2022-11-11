@@ -1,4 +1,7 @@
 package Train.Validation;
+
+import java.util.LinkedList;
+
 /*
 * Необязательное домашнее задание.
 
@@ -48,8 +51,15 @@ P.S. Бонусное задание посмотреть статьи про Un
 public class Main {
     public static void main(String[] args) {
         UserValidationService validation = new UserValidationService();
-        User user1 = new User("A", "B", new Address("Андорра", "D", "E", 1),
-                "f.j.j@google.de", "G");
+        User user1 = new User("A", "B", new Address("Андорра", "D", "E", 1), "f.j.j@google.ua", "G");
+        User user2 = new User("", "B", new Address("Андорра", "D", "E", 1), "f.j.j@google.ua", "G");
+
         System.out.println(validation.isCorrectUsers(user1));
+
+        LinkedList<User> test = new LinkedList<>();
+        test.add(user1);
+        test.add(user2);
+
+        validation.getIncorrectUsers(test);
     }
 }
