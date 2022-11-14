@@ -2,7 +2,10 @@ package Train.Validation;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -111,6 +114,8 @@ class UserValidationServiceTest {
         test.add(userTestFromSiteFalse3);
         test.add(userTestFromSiteFalse4);
 
+        List<User> ar = Arrays.asList(userTrueCom, userTestFromSiteFalse1);
+
         LinkedList<User> wrongList = new LinkedList<>();
         wrongList.add(userTestFromSiteFalse1);
         wrongList.add(userTestFromSiteFalse2);
@@ -124,6 +129,7 @@ class UserValidationServiceTest {
         for (int i = 0; i < wrongList.size(); i++) {
             assertEquals(test2.get(i), wrongList.get(i));
         }
+        assertEquals(test2, wrongList);
 
     }
 }

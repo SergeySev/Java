@@ -1,13 +1,12 @@
 package Train.Validation;
 
+import javax.xml.stream.events.Characters;
 import java.util.LinkedList;
 
 public class UserValidationService {
 
     public boolean isCorrectUsers(User user) // возвращает булевое значение, правильный ли это пользователь
     {
-//        List<Object> userData = new LinkedList<>(name, surname, country, city, street, houseNumber, email, phone);
-
         /*
         Return true - if user correct
         * Check email for content:
@@ -23,17 +22,22 @@ public class UserValidationService {
         Verify unicode char in the address in the email text box.✅
         * */
 
-        return checkEmailLength(user.getEmail())
-                && isFieldEmpty(user)
+        return isFieldEmpty(user)
                 && checkCountryIsFalse(user)
                 && !(user.getAddress().getHouseNumber() == 0)
-                && checkEmailDog(user)
-                && checkEmailDomein(user)
-                && checkEmailFirstEl(user)
-                && checkEmailDot(user)
-                && checkEmailContainWrongEl(user);
+                && isEmailValid(user.getEmail());
     }
 
+    private boolean isEmailValid(String email) {
+        return checkEmailDog(email)
+                && checkEmailTwoDots(email)
+                && checkEmailDomein(email)
+                && checkEmailFirstEl(email)
+                && checkEmailDot(email)
+                && checkEmailContainWrongEl(email)
+                && checkEmailLength(email)
+                && checkEmailTwoDogs(email);
+    }
     private boolean checkCountryIsFalse(User user) {
         String[] countries = {"Австралия", "Австрия", "Азербайджан", "Албания", "Алжир", "Ангилья", "Англия", "Ангола",
                 "Андорра", "Антигуа и Барбуда", "Аргентина", "Армения", "Аруба", "Афганистан", "Израиль", "Индия",
@@ -41,7 +45,6 @@ public class UserValidationService {
                 "Италия"};
         for (String country : countries) {
             if (country.equals(user.getAddress().getCountry())) {
-
                 return true;
             }
         }
@@ -53,15 +56,14 @@ public class UserValidationService {
         return emailLength.length() < 255;
     }
 
-    public static boolean checkEmailDog(User user) {
-        return user.getEmail().contains("@");
+    public static boolean checkEmailDog(String email) {
+        return email.contains("@");
     }
 
-    public static boolean checkEmailDomein(User user) {
+    public static boolean checkEmailDomein(String email) {
 
         // Verify the missing domain in the email id field
 
-        String email = user.getEmail();
         int length = email.length();
         return email.substring(length - 4).equals(".com") ||
                 email.substring(length - 3).equals(".ua") ||
@@ -69,46 +71,39 @@ public class UserValidationService {
                 email.substring(length - 3).equals(".de");
     }
 
-    public static boolean checkEmailFirstEl(User user) {
-        return !(user.getEmail().indexOf('@') == 0);
+    public static boolean checkEmailFirstEl(String email) {
+        return email.indexOf('@') != 0;
     }
 
-    public static boolean checkEmailDot(User user) {
-        String email = user.getEmail();
+    public static boolean checkEmailDot(String email) {
         return !(email.indexOf('.') == 0 || email.charAt(email.indexOf('@') - 1) == '.');
     }
 
-    public static boolean checkEmailContainWrongEl(User user) {
-        String email = user.getEmail();
+    public static boolean checkEmailTwoDogs(String email) {
+        return email.indexOf("@") == email.lastIndexOf("@");
+    }
+
+    public static boolean checkEmailContainWrongEl(String email) {
         char[] emailToChar = email.toCharArray();
-        int countDog = 0;
         for (int i = 0; i < emailToChar.length; i++) {
             /*
-             Verify multiple dots in the email field
              Verify contains wrong element
              */
             if (!(emailToChar[i] > 32 && emailToChar[i] < 94) && !(emailToChar[i] > 94 && emailToChar[i] < 126)) {
                 return false;
             }
-            try {
-                if (emailToChar[i] == '.' && (emailToChar[i - 1] == '.' || emailToChar[i + 1] == '.')) {
-                    return false;
-                }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                break;
-            }
-            if (emailToChar[i] == '@') {
-                countDog++;
-            }
         }
-        // Verify for count '@' if it bigger than 1 - email not valid
-        return countDog <= 1;
+        return true;
     }
+
+    public boolean checkEmailTwoDots(String email){
+        return !email.contains("..");
+    }
+
 
     public boolean isFieldEmpty(User user) {
         Object[] userData = getData(user);
         for (Object userDatum : userData) {
-//            System.out.println(userDatum);
             if (userDatum.toString().isEmpty()) {
                 return false;
             }
@@ -121,16 +116,7 @@ public class UserValidationService {
                 users.getAddress().getCity(), users.getAddress().getStreet(), users.getAddress().getHouseNumber(),
                 users.getEmail(), users.getPhone()};
     }
-//    protected List<Object> getData(User users) {
-//        return new List<Object> (users.getName(), users.getSurname(), users.getAddress().getCountry(),
-//                users.getAddress().getCity(), users.getAddress().getStreet(), users.getAddress().getHouseNumber(),
-//                users.getEmail(), users.getPhone());
-//    }
 
-//    public User[] getIncorrectUsers(User[] users) // здесь можно вызывать метод isCorrectUsers в цикле
-//    {
-//        return new User[0];
-//    }
     public LinkedList<User> getIncorrectUsers(LinkedList<User> users) // здесь можно вызывать метод isCorrectUsers в цикле
     {
         LinkedList<User> wrongUsers = new LinkedList<>();
