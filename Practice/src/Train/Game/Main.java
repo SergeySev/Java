@@ -71,18 +71,13 @@ public class Main {
 
         while (play) {
             // chose attacker
-            do {
-                attacker = (checkMove) ? group1.get(random.nextInt(group1.size())) : group2.get(random.nextInt(group1.size()));
-            } while (attacker.getHp() <= 0);
-
+            attacker = (checkMove) ? group1.get(random.nextInt(group1.size())) : group2.get(random.nextInt(group1.size()));
             // chose attacked
-            do {
-                attacked = (checkMove) ? group2.get(random.nextInt(group1.size())) : group1.get(random.nextInt(group1.size()));
-            } while (attacked.getHp() <= 0);
+            attacked = (checkMove) ? group2.get(random.nextInt(group1.size())) : group1.get(random.nextInt(group1.size()));
 
             // make attack
             attacker.attack(attacker, attacked);
-            System.out.println("\nSchark was attack!!!\nShark  №" + (((!checkMove) ? group1.indexOf(attacked) : group2.indexOf(attacked))+1 + " has " + attacked.getHp() + " HP\n"));
+            System.out.println("\nSchark was attack!!!\nShark  №" + (((!checkMove) ? group1.indexOf(attacked) : group2.indexOf(attacked)) + 1 + " has " + attacked.getHp() + " HP\n"));
 
             System.out.println("Group 1 has hp:");
             for (int i = 0; i < group1.size(); i++) {
