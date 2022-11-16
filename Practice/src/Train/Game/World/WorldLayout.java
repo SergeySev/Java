@@ -12,6 +12,14 @@ public class WorldLayout {
         this.name = name;
     }
 
+    public Integer getSize() {
+        return size;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public void climateImpact() {
     }
 }

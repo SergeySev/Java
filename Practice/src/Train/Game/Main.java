@@ -3,9 +3,14 @@ package Train.Game;
 import Train.Game.Life.*;
 import Train.Game.Life.LifeType.HerbivoreType;
 import Train.Game.Life.LifeType.PlantType;
+import Train.Game.Life.LifeType.Predator;
 import Train.Game.Life.LifeType.PredatorType;
 import Train.Game.World.WorldFabric;
+import Train.Game.World.WorldLayout;
 import Train.Game.World.WorldType;
+
+import java.util.List;
+import java.util.Random;
 
 /*
 Реализовать создание разных миров для компьютерной игры с
@@ -47,6 +52,60 @@ public class Main {
         lifeFabric.createHerbivore(HerbivoreType.CHICKEN).behavior();
         lifeFabric.createPredator(PredatorType.GORDONRAMZI).behavior();
 
+        WorldLayout kamino = worldFabric.getWorldFromDB("Kamino");
+        System.out.println();
+        kamino.climateImpact();
+        System.out.println(kamino.getSize());
+        System.out.println(kamino.getName());
 
+
+        List<Predator> group1 = lifeFabric.createGroup(4);
+        List<Predator> group2 = lifeFabric.createGroup(5);
+
+        Random random = new Random();
+        boolean play = true;
+        boolean checkMove = true;
+        Predator attacker;
+        Predator attacked;
+        System.out.println();
+
+        while (play) {
+            // chose attacker
+            do {
+                attacker = (checkMove) ? group1.get(random.nextInt(group1.size())) : group2.get(random.nextInt(group1.size()));
+            } while (attacker.getHp() <= 0);
+
+            // chose attacked
+            do {
+                attacked = (checkMove) ? group2.get(random.nextInt(group1.size())) : group1.get(random.nextInt(group1.size()));
+            } while (attacked.getHp() <= 0);
+
+            // make attack
+            attacker.attack(attacker, attacked);
+            System.out.println("\nSchark was attack!!!\nShark  №" + (((!checkMove) ? group1.indexOf(attacked) : group2.indexOf(attacked))+1 + " has " + attacked.getHp() + " HP\n"));
+
+            System.out.println("Group 1 has hp:");
+            for (int i = 0; i < group1.size(); i++) {
+                System.out.println("Unit " + (i + 1) + " has " + group1.get(i).getHp() + " HP");
+            }
+            System.out.println("\nGroup 2 has hp:");
+            for (int i = 0; i < group2.size(); i++) {
+                System.out.println("Unit " + (i + 1) + " has " + group2.get(i).getHp() + " HP");
+            }
+            System.out.println("_______________-");
+            checkMove = !checkMove;
+
+            group1.removeIf(unit -> unit.getHp() <= 0);
+            group2.removeIf(unit -> unit.getHp() <= 0);
+
+            if (group2.size() == 0 || group1.size() == 0) {
+                play = false;
+                String winner;
+                if (group1.size() > 0) {
+                    winner = "Group 1";
+                } else winner = "Group 2";
+                System.out.println("Our winner is " + winner);
+            }
+        }
     }
 }
