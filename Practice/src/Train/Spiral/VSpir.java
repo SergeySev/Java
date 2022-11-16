@@ -37,8 +37,8 @@ public class VSpir {
 
     
     public static void testV() {
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
                 int[][] temp = Vspiral(i, j);
                 for (int[] ints : temp) {
                     System.out.println(Arrays.toString(ints));

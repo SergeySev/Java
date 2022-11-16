@@ -62,8 +62,8 @@ public class Spiral {
     }
 
     public static void testSergey() {
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 7; j++) {
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < 100; j++) {
                 try {
                     getArray(j, i);
                 } catch (ArrayIndexOutOfBoundsException e) {
