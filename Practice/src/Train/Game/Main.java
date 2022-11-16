@@ -1,11 +1,10 @@
 package Train.Game;
 
-import Train.Game.Life.FlorFaunType;
-import Train.Game.Life.FloraFauna;
-import Train.Game.Life.LifeFabric;
-import Train.Game.Life.Predator;
+import Train.Game.Life.*;
+import Train.Game.Life.LifeType.HerbivoreType;
+import Train.Game.Life.LifeType.PlantType;
+import Train.Game.Life.LifeType.PredatorType;
 import Train.Game.World.WorldFabric;
-import Train.Game.World.WorldLayout;
 import Train.Game.World.WorldType;
 
 /*
@@ -36,33 +35,18 @@ public class Main {
         WorldFabric worldFabric = new WorldFabric();
         LifeFabric lifeFabric = new LifeFabric();
 
-        System.out.println("Create Life\n");
-        System.out.println("Create plant");
-        FloraFauna rose = lifeFabric.createLife(FlorFaunType.PLANT);
-        rose.behavior();
-        rose.interaction();
+        worldFabric.createWorld(WorldType.MARINE).climateImpact();
 
-        System.out.println("Create herbivore");
-        FloraFauna chicken = lifeFabric.createLife(FlorFaunType.HERBIVORES);
-        chicken.behavior();
-        chicken.interaction();
+        lifeFabric.createPlant(PlantType.NORI).behavior();
+        lifeFabric.createHerbivore(HerbivoreType.REDFISH).behavior();
+        lifeFabric.createPredator(PredatorType.SHARK).behavior();
+        System.out.println("__________");
 
-        System.out.println("Create predator");
-        FloraFauna tiger = lifeFabric.createLife(FlorFaunType.PREDATORS);
-        tiger.behavior();
-        tiger.interaction();
+        worldFabric.createWorld(WorldType.TROPICAL).climateImpact();
+        lifeFabric.createPlant(PlantType.GARLIC).behavior();
+        lifeFabric.createHerbivore(HerbivoreType.CHICKEN).behavior();
+        lifeFabric.createPredator(PredatorType.GORDONRAMZI).behavior();
 
-        System.out.println("\nCreate world\n");
-        System.out.println("Create sea-world");
-        WorldLayout kamino = worldFabric.createWorld(WorldType.MARINE);
-        kamino.climateImpact();
 
-        System.out.println("Create desert-world");
-        WorldLayout tatuin = worldFabric.createWorld(WorldType.DESERTED);
-        tatuin.climateImpact();
-
-        System.out.println("Create tropic-world");
-        WorldLayout nabu = worldFabric.createWorld(WorldType.TROPICAL);
-        nabu.climateImpact();
     }
 }

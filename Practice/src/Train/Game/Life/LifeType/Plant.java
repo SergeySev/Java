@@ -1,7 +1,9 @@
-package Train.Game.Life;
+package Train.Game.Life.LifeType;
+
+import Train.Game.Life.FloraFauna;
 
 public class Plant extends FloraFauna {
     public void behavior() {
-        System.out.println("Just grow up");
+
     }
 }
