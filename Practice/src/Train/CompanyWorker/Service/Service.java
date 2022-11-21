@@ -4,13 +4,12 @@ import Train.CompanyWorker.DB.DB;
 import Train.CompanyWorker.Position;
 import Train.CompanyWorker.Worker;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Service {
+    DB db = new DB();
     public Worker createWorker() {
         Scanner scanner = new Scanner(System.in);
-        String position;
 
         Worker newWorker = new Worker();
         System.out.println("Name: ");
@@ -27,10 +26,9 @@ public class Service {
             default -> Position.JUNIOR;
         });
 
-
         System.out.println("Salary: ");
         newWorker.setSalary(scanner.nextInt());
-        DB db = new DB();
+
         db.addToDB(newWorker);
         return newWorker;
     }
@@ -39,11 +37,13 @@ public class Service {
         if (worker.getPosition() == Position.TOP) {
             System.out.println("Already top");
         } else worker.setPosition(Position.values()[worker.getPosition().ordinal() - 1]);
+        db.lookDB();
     }
 
     public void workerDown(Worker worker) {
         if (worker.getPosition() == Position.JUNIOR) {
             System.out.println("Already jun");
         } else worker.setPosition(Position.values()[worker.getPosition().ordinal() + 1]);
+        db.lookDB();
     }
 }
