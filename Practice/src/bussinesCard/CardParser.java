@@ -97,16 +97,17 @@ public class CardParser {
     }
 
     private String getAddressType(String str) {
-        if (str.isEmpty()) return str;
-        int indexLastComa = str.lastIndexOf(',');
-        int indexTwoDots = str.lastIndexOf(':');
-        return str.substring(indexLastComa + 1, indexTwoDots);
+        if (str.isEmpty()) return "null";
+        Pattern pattern = Pattern.compile("(STREET|CITY|COUNTRY)");
+        Matcher matcher = pattern.matcher(str);
+        return (matcher.find()) ? matcher.group() : "null";
     }
 
     private String getType(String str) {
-        int indexComa = str.indexOf(',');
-        int indexEqual = str.indexOf('=');
-        return str.substring(indexEqual + 1, indexComa);
+        if (str.isEmpty()) return "null";
+        Pattern pattern = Pattern.compile("(PREF|HOME|WORK)");
+        Matcher matcher = pattern.matcher(str);
+        return (matcher.find()) ? matcher.group() : "null";
     }
 
     public static void main(String[] args) {
